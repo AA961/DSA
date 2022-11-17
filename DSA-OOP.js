@@ -87,8 +87,6 @@ class arr {
 
         rec(data, startPoint, endPoint);
         console.log(position);
-
-
     }
 }
 let array = new arr([1, 2, 3, 4, 5, 6, 7, 8, 9])
