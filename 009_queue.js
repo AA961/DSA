@@ -8,9 +8,7 @@ function enqueue(value) {
             queue[0] = value;
         } else {
             for (let i = currentSize; i >= 0; i--) {
-
                 queue[i + 1] = queue[i];
-
             }
             queue[0] = value;
         }
