@@ -30,6 +30,6 @@ class Stack {
 let data = new Stack();
 let str = "reverseStringUsingStack";
 str = str.split('');
-let result = data.reverseString(str);
+// let result = data.reverseString(str);
 
-console.log(result);
+console.log(str);
