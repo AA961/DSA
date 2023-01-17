@@ -22,6 +22,10 @@ class Tree {
     }
 
     insertNode(root, node) {
+        if (this.search(node.value, root)) {
+            console.log(`${node.value} is already in the tree`);
+            return;
+        }
         if (root.value > node.value) {
             if (root.left == null) {
                 root.left = node;
@@ -34,6 +38,47 @@ class Tree {
             } else {
                 this.insertNode(root.right, node);
             }
+        }
+    }
+
+    preOrder(root) {
+        // document.write("Pre Order")
+        if (root) {
+            document.write(root.value + ',  ');
+            this.preOrder(root.left);
+            this.preOrder(root.right);
+        }
+    };
+
+    inOrder(root) {
+        // document.write("In Order")
+        if (root) {
+            this.inOrder(root.left);
+            document.write(root.value + ',  ');
+            this.preOrder(root.right);
+        }
+    };
+
+    postOrder(root) {
+        // document.write("Post Order")
+        if (root) {
+            this.preOrder(root.left);
+            this.preOrder(root.right);
+            document.write(root.value + ',  ');
+        }
+    };
+
+    search(value, root) {
+        if (root) {
+            if (root.value === value) {
+                return true;
+            } else if (root.value < value) {
+                return this.search(value, root.right);
+            } else if (root.value > value) {
+                return this.search(value, root.left);
+            }
+        } else {
+            return false;
         }
     }
 
@@ -58,4 +103,8 @@ binrayTree.createTree(14)
 binrayTree.createTree(5)
 
 
-console.warn(binrayTree)
+// console.log(binrayTree)
+// console.log(binrayTree.search(14, binrayTree.root));
+// binrayTree.preOrder(binrayTree.root);
+// binrayTree.inOrder(binrayTree.root);
+binrayTree.postOrder(binrayTree.root);
